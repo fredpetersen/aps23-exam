@@ -1,0 +1,10 @@
+2
+vodka 1
+gin 2
+2
+vodkashot vodka
+ginshot gin
+3
+alice ginshot
+bob vodkashot
+carol vodkashot
