@@ -9,8 +9,6 @@ randpattern = [1]
 for i in range(randlength - 1):
     randpattern.append(random.randint(0, 1))
 
-print(randpattern)
-
 currentCarriage = int(input())
 
 # Build the first `randlength` steps to the right to be all 0s
@@ -55,12 +53,3 @@ while (not checkmatch()):
 
 # once pattern is hit calculate how many steps have been walked until hitting this
 print("!", len(carriages) + 1)
-
-
-# start (len: 7)
-# 0100011 
-
-# state
-# 0011011
-# x
-# pos
