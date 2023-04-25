@@ -56,9 +56,9 @@ line = sys.stdin.readline()
 assert re.match(r"\d+", line)
 people = int(line)
 
-assert 1 <= drinks <= maxPeople
+assert 1 <= people <= maxPeople
 
-for i in range(drinks):
+for i in range(people):
     person_line = sys.stdin.readline()
     regex = r"(\w+ ){1,}(\w+)\n" # each line consists of a name + at least one ingredient and ending in a newline character without whitespace between the last ingredient and the newline
     assert re.match(regex, person_line), person_line
