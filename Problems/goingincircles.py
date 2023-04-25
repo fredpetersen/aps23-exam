@@ -2,7 +2,7 @@
 
 import random
 
-randlength = 5
+randlength = 50
 
 # Build a random sequence of {0,1} not seeded with E, PI etc. of length ~50. Make sure it starts with a 1
 randpattern = [1]
@@ -32,29 +32,35 @@ for i in range(randlength):
         currentCarriage = int(input())
     print("? left")
     currentCarriage = int(input())
-    
+
+# Variable that holds last steps
+
+carriages = []
+
+# function to check if last 50 steps match my random pattern
+
+def checkmatch():
+    if len(carriages) < randlength:
+        return False
+    for i in range(randlength):
+        if carriages[len(carriages) - i - 1] != randpattern[randlength - i - 1]:
+            return False
+    return True
+
 # otherwise after building the 50 steps continue going left looking for the pattern
 
-currentMatchLength = 0
-numsteps = 0
-while (currentMatchLength < len(randpattern)):
-    if currentCarriage == randpattern[currentMatchLength]:
-        currentMatchLength += 1
-    else:
-        currentMatchLength = 0
-    
+while (not checkmatch()):
     print("? left")
-    currentCarriage = int(input())
-    numsteps += 1
+    carriages.append(int(input()))
 
 # once pattern is hit calculate how many steps have been walked until hitting this
-print("!", numsteps)
+print("!", len(carriages) + 1)
 
 
 # start (len: 7)
 # 0100011 
 
 # state
-# 0110011
+# 0011011
 # x
 # pos
