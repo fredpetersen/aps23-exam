@@ -1,4 +1,4 @@
-# Some accepted python solution (This would currently only socres 1 and 2)
+# Some accepted python solution (This would currently only succesfully solve testcase 1 and 2)
 from collections import defaultdict 
 from flow import flow
 
