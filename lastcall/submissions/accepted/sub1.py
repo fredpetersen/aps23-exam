@@ -18,8 +18,8 @@ for _ in range(m):
 j = int(input())
 customers = defaultdict(list)
 for _ in range(m):
-  customer, *drinkPrefs = input().split()
-  customers[customer] = drinkPrefs
+  customer, *drink_prefs = input().split()
+  customers[customer] = drink_prefs
 
 
 graph = defaultdict(lambda : defaultdict(int))
