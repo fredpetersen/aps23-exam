@@ -24,17 +24,20 @@ for _ in range(m):
 
 graph = defaultdict(lambda : defaultdict(int))
 
-for (ing, num) in ingredients.items():
-  graph["start"][ing] = num
+# for (ing, num) in ingredients.items():
+#   graph["start"][ing] = num
 
 for drink, ings in drinks.items():
-  for ing in ings:
-    graph[ing][drink] = 1000000
+    graph["start"][drink] = 1000000
+    for ing in ings:
+      graph[drink][ing] = ingredients[ing]
+    
 
 for cust, prefs in customers.items():
   for pref in prefs:
-    graph[pref][cust] = 2
-  graph[cust]["end"] = 2
+    for ing in drinks[pref]:
+      graph[ing][cust] = 1
+  graph[cust]["end"] = 1000
 
 fv,fg,cut = flow(graph, "start", "end")
 print(fv)
