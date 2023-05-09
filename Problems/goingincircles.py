@@ -5,6 +5,8 @@ import random
 randlength = 50
 
 # Build a random sequence of {0,1} not seeded with E, PI etc. of length ~50. Make sure it starts with a 1
+# Starts with 1 because this is used to check that n !< randlength 
+# (if building randlength hits 1 then n = how much of randpattern has been built)
 randpattern = [1]
 for i in range(randlength - 1):
     randpattern.append(random.randint(0, 1))
@@ -22,7 +24,7 @@ for _ in range(randlength):
 # Start building the random sequence from place 50 and going left
 for i in range(randlength):
     # If during building you hit the 1 that you started by building, you know the length is less than 50
-    if currentCarriage == 1 & i != 0:
+    if currentCarriage == 1 and i != 0:
         print("!", i)
         quit() # This seems to work and print the correct length!
     if currentCarriage != randpattern[i]:
@@ -52,4 +54,4 @@ while (not checkmatch()):
     carriages.append(int(input()))
 
 # once pattern is hit calculate how many steps have been walked until hitting this
-print("!", len(carriages) + 1)
+print("!", len(carriages) + 1) # without +1 it fails at TC2

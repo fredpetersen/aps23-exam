@@ -17,9 +17,16 @@ def createinput(n):
 inc = 1
 
 while inc < 5000:
-    createinput(inc)
+    # createinput(inc)
     inc *= 2
 
+k = 3
+
+while k < 200:
+    arrs.append([1] * k)
+    arrs.append([0] * k)
+    createinput(k)
+    k += 1
 
 # call goingincircles2.ans() instead of responding to terminal
 
