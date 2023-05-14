@@ -1,7 +1,7 @@
 class FenwickTree
-  def initialize(n, max)
-    @tree = Array.new(n, 0)
-    @max = max
+  def initialize(n)
+    @tree = Array.new(n + 1, 0)
+    @max = n
   end
 
   def update(index, value)
@@ -23,21 +23,40 @@ class FenwickTree
   end
 end
 
-def get_inversion_count(trees, array, max)
-  array.reverse_each do |index|
+def get_inversion_count(trees, array, indexes, max)
+  array.reverse_each do |element|
+    index = indexes[element]
+    half = indexes[element / 2]
+
     trees[0].update(index, 1)
-    trees[1].update(index, trees[0].sum(index / 2))
-    trees[2].update(index, trees[1].sum(index / 2))
+    trees[1].update(index, trees[0].sum(half))
+    trees[2].update(index, trees[1].sum(half))
   end
 
   trees[2].sum(max)
 end
 
-n = gets.to_i
-array = gets.split.map(&:to_i)
-max = array.max
+_n = gets.to_i
+for_indexing = [0]
+array = []
+indexes = {}
+counter = 0
+
+gets.split.each do |i|
+  x = i.to_i
+  for_indexing << x
+  for_indexing << x * 2
+  array << x * 2
+end
+
+for_indexing.sort.each do |i|
+  next if indexes.key?(i) || i.zero?
+
+  indexes[i] = counter
+  counter += 1
+end
 
 trees = []
-3.times { trees.append(FenwickTree.new(max + 1, max))}
+3.times { trees.append(FenwickTree.new(counter)) }
 
-puts get_inversion_count(trees, array, max)
+puts get_inversion_count(trees, array, indexes, counter)
