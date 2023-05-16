@@ -26,15 +26,15 @@ customers = defaultdict(set)
 # print("tonics", tonics)
 
 for i in range(n):
-  allergens = set(input().split())
-  customer = "c" + "".join(allergens)
+  allergies = set(input().split())
+  customer = "c" + "".join(allergies)
   # print("NY CUSTOMER", customer)
-  for gin,allergenics in gins.items():
-    # print(gin, allergenics)
-    if len(allergens&allergenics)==0:
+  for gin,allergens in gins.items():
+    # print(gin, allergens)
+    if len(allergies&allergens)==0:
       graph[gin][customer] += 1
-  for tonic,allergenics in tonics.items():
-    if len(allergens&allergenics)==0:
+  for tonic,allergens in tonics.items():
+    if len(allergies&allergens)==0:
       graph[customer][tonic] += 1
 
 # print(graph)
