@@ -15,7 +15,7 @@ sample 1
 
 tc  random1 gen_random g=10 i=10 n=100 seed=13152452345
 tc  random2 gen_random g=100 i=100 n=100 allergies=10 max=2  seed=1234532323
-tc  random3 gen_random g=100 i=100 n=10000 allergies=10 max=100  seed=5434687902
+tc  random3 gen_random g=100 i=100 n=1000 allergies=10 max=10  seed=5434687902
 # tc  random3 generate_random
-tc  no_allergies1 gen_no_allergies g=10 i=10 n=100000 seed=12341234
+tc  no_allergies1 gen_no_allergies g=10 i=10 n=1000 seed=12341234
 # tc  pos2 generate_pos

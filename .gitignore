@@ -1,0 +1,4 @@
+**/*.in
+!**/sample/*.in
+**/*.ans
+!**/sample/*.ans
