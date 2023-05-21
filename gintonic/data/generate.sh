@@ -6,6 +6,7 @@ use_solution jointgraph.py              # Use ../submissions/accepted/jointgraph
 
 compile gen_random.py
 compile gen_no_allergies.py
+compile gen_low_allergy_count.py
 # compile generate_pos.py
 
 # Generate answers to sample cases

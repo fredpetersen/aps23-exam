@@ -2,14 +2,14 @@
 from collections import defaultdict 
 from time import time # Benchmark
 
-def bfs(graph,src,dest,mincap=0): # returns path to dest
+def bfs(graph,src,dest): # returns path to dest
     parent = {src:src}
     layer = [src]
     while layer:
         nextlayer = []
         for u in layer:
             for v,cap in graph[u].items():
-                if cap > mincap and v not in parent:
+                if cap > 0 and v not in parent:
                     parent[v] = u
                     nextlayer.append(v)
                     if v == dest:
@@ -23,27 +23,12 @@ def bfs(graph,src,dest,mincap=0): # returns path to dest
     return (False,set(parent))
     
 def flow(orggraph, src,dest):
-    graph = defaultdict(lambda: defaultdict(int))
-    maxcapacity = 0
-    for u,d in orggraph.items():
-        for v,c in d.items():
-            graph[u][v] = c
-            maxcapacity = max(maxcapacity,c)
-
+    graph = orggraph.copy()
     current_flow = 0
-    mincap = maxcapacity
     while True:
-        ispath,p_or_seen = bfs(graph,src,dest,mincap)
+        ispath, p = bfs(graph,src,dest)
         if not ispath:
-            if mincap > 0:
-                mincap = mincap // 2
-                continue
-            else:
-                return (current_flow,
-                        { a:{b:c-graph[a][b] for b,c in d.items() if graph[a][b]<c} 
-                            for a,d in orggraph.items() },
-                        p_or_seen)
-        p = p_or_seen
+            return current_flow
         saturation = min( graph[u][v] for u,v in p )
         
         current_flow += saturation
@@ -127,7 +112,7 @@ inter_time = time()
 
 # print(graph)
 
-fv,fg,cut = flow(graph, "start", "end")
+fv= flow(graph, "start", "end")
 # print("Running flow took", time()-inter_time)
 # print("TOTAL COMPLETION TIME", time() - start_time)
 print(fv)
