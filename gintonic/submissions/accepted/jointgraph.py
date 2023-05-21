@@ -21,12 +21,30 @@ def bfs(graph,src,dest): # returns path to dest
                         return (True,p)
         layer = nextlayer
     return (False,set(parent))
+
+def dfs(graph,src,dest):
+    parent = {src:src}
+    nodes_to_check = [src]
+    while nodes_to_check:
+        node = nodes_to_check.pop()
+        for v, cap in graph[node].items():
+            if cap > 0 and v not in parent:
+                parent[v] = node
+                nodes_to_check.append(v)
+                if v == dest:
+                    p = []
+                    current_vertex = dest
+                    while src != current_vertex:
+                        p.append((parent[current_vertex],current_vertex))
+                        current_vertex = parent[current_vertex]
+                    return (True,p)
+    return (False, set(parent))
     
 def flow(orggraph, src,dest):
     graph = orggraph.copy()
     current_flow = 0
     while True:
-        ispath, p = bfs(graph,src,dest)
+        ispath, p = dfs(graph,src,dest)
         if not ispath:
             return current_flow
         saturation = min( graph[u][v] for u,v in p )
