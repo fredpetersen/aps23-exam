@@ -54,7 +54,7 @@ def findMatchings(rem_customers, rem_gins, rem_tonics):
           new_rem_gins.remove(gin)
           new_rem_tonics = rem_tonics.copy()
           new_rem_tonics.remove(tonic)
-          matches += findMatchings(rem_customers=new_rem_customers, rem_gins=new_rem_gins, rem_tonics=new_rem_tonics)
+          matches += findMatchings(new_rem_customers, new_rem_gins, new_rem_tonics)
           maxMatches = max(maxMatches, matches)
           matches = 0
           
