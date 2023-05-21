@@ -1,6 +1,4 @@
 #! usr/bin/env python3
-import sys
-sys.setrecursionlimit(10000000)
 g,t,n = map(int,input().split())
 gins = []
 tonics = []
