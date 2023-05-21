@@ -14,15 +14,15 @@ You need to figure out how many attendees can receive a G\&T that is safe for th
 \noindent Specifically, you have $n$ members attending the KATTIS party, each with a list of $m_i$ allergens they are allergic to.
 You also have $g$ types of gin and $i$ types of tonic available to serve.
 For each type of gin and tonic, you know the list of allergens it contains aswell as the available supply.
-\\\\
-\noindent Formally, let $p_1, p_2, \dots, p_n$ be the list of members attending the KATTIS party, 
-where member $k$ has a list of allergens $a_k = a_{k1}, a_{k2}, \dots, a_{kz}$. 
-Let $G_1, G_2, \dots, G_g$ be the list of gins available, 
-where gin $j$ has a list of allergens $b_j = b_{j1}, b_{j2}, \dots, b_{jh}$.
-Let $t_1, t_2, \dots, t_i$ be the list of tonics available, 
-where tonic $r$ has a list of allergens $c_r = c_{r1}, c_{r2}, \dots, c_{rv}$. 
+\\
+% \noindent Formally, let $p_1, p_2, \dots, p_n$ be the list of members attending the KATTIS party, 
+% where member $k$ has a list of allergens $a_k = a_{k1}, a_{k2}, \dots, a_{kz}$. 
+% Let $G_1, G_2, \dots, G_g$ be the list of gins available, 
+% where gin $j$ has a list of allergens $b_j = b_{j1}, b_{j2}, \dots, b_{jh}$.
+% Let $t_1, t_2, \dots, t_i$ be the list of tonics available, 
+% where tonic $r$ has a list of allergens $c_r = c_{r1}, c_{r2}, \dots, c_{rv}$. 
 
-\noindent A gin and tonic pair $(j,r)$ is safe for a member $p$ if and only if $ \forall a \in {a_p} (a \notin {b_j}$ and $a \notin {c_r})$.
+\noindent A gin and tonic pair $(j,r)$ is safe for a member $p$ if and only if none of the allergens of $j$ and $r$ are contained in the allergens of $p$.
 \\\\
 \noindent Your task is to find the maximum number of allergenic attendees who can receive a safe-to-drink G\&T.
 
@@ -31,13 +31,13 @@ where tonic $r$ has a list of allergens $c_r = c_{r1}, c_{r2}, \dots, c_{rv}$.
 The input consists of the following:
 
 \begin{itemize}
-\item Three integers $g$ ($1 \leq g \leq 100$), $i$ ($1 \leq i \leq 100$) and $n$ ($1 \leq n \leq 10^6$), the number of gins, tonics and members attending the KATTIS party.
+\item Three integers $g$ ($1 \leq g \leq 100$), $i$ ($1 \leq i \leq 100$) and $n$ ($1 \leq n \leq 10^5$), the number of gins, tonics and members attending the KATTIS party.
 
-\item For each gin $G_i$ an integer $\ell_j$ ($1 \leq \ell_j \leq100^6$), the amount of gin in units, followed by a list of length $h$ ($0 \leq h \leq 100$), consisting of space seperated names representing the allergens present in gin $g_i$.
+\item For each gin $G_i$ an integer $\ell_j$ ($1 \leq \ell_j \leq10^6$), the amount of gin in units, followed by a list ($0 \leq length \leq 100$), consisting of space seperated names representing the allergens present in gin $g_i$.
 
-\item For each tonic $t_i$ an integer $\ell_r$ ($1 \leq \ell_r \leq 100^6$), the amount of tonic in units, followed by a list of length $v$ ($0 \leq v \leq 100$), consisting of space seperated names representing the allergens present in tonic $t_i$.
+\item For each tonic $t_i$ an integer $\ell_r$ ($1 \leq \ell_r \leq 10^6$), the amount of tonic in units, followed by a list ($0 \leq length \leq 100$), consisting of space seperated names representing the allergens present in tonic $t_i$.
 
-\item For each member $n_i$, an alphanumeric name of at most length $10$ followed by a space seperated list of length $z$ ($0 \leq z \leq 100$) of the allergens they are allergic to.
+\item For each member $n_i$, an alphanumeric name of at most length $10$ followed by a space seperated list ($0 \leq length \leq 100$) of the allergens they are allergic to.
 \end{itemize}
 
 \section*{Output}
