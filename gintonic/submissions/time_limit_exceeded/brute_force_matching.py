@@ -5,6 +5,17 @@ g,t,n = map(int,input().split())
 gins = []
 tonics = []
 
+def has_shared_element(set1, set2):
+    if len(set1) < len(set2):
+        for elem in set1:
+            if elem in set2:
+                return True
+    else:
+        for elem in set2:
+            if elem in set1:
+                return True
+    return False
+
 for i in range(g):
   amount, *allergens_list = input().split()
   allergens_list = set(allergens_list)
@@ -35,7 +46,7 @@ def findMatchings(rem_customers, rem_gins, rem_tonics):
   for customer_allergens in rem_customers:
     for gin in rem_gins:
       for tonic in rem_tonics:
-        if len(customer_allergens&gin) == 0 and len(customer_allergens&tonic)== 0:
+        if not has_shared_element(customer_allergens, gin) and not has_shared_element(customer_allergens,tonic):
           matches += 1
           new_rem_customers =rem_customers.copy()
           new_rem_customers.remove(customer_allergens)
