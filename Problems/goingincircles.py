@@ -2,7 +2,7 @@
 
 import random
 
-randlength = 50
+randlength = 25
 
 # Build a random sequence of {0,1} not seeded with E, PI etc. of length ~50. Make sure it starts with a 1
 # Starts with 1 because this is used to check that n !< randlength 
