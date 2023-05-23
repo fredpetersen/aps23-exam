@@ -4,10 +4,10 @@ import re
 
 max_gins = 100
 max_tonics = 100
-max_people = 10e6
-max_units_of_drinks = 10e6
+max_people = 10e5
+max_units_of_drinks = 10e5
 
-max_allergenics = 100
+max_allergenics = 10
 
 g, i, n = next(stdin).split()
 assert re.match(r"\d+", g)

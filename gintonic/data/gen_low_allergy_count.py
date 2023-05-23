@@ -18,8 +18,8 @@ def cmdlinearg(name, default=None):
 
 allergens = []
 
-allergies=int(cmdlinearg('allergies', 100))
-max_units=int(cmdlinearg('max', 10e6))
+allergies=int(cmdlinearg('allergies', 10))
+max_units=int(cmdlinearg('max', 10e5))
 
 for c in string.ascii_lowercase[:4]:
     for k in string.ascii_lowercase:
@@ -47,6 +47,6 @@ for _ in range(i): # tonics
     print(str(units) + " " +" ".join(allergens[:allergenics]))
     
 for z in range(n): # people
-    allergenics = random.randint(0, (allergies/10))
+    allergenics = random.randint(0, (allergies//3))
     random.shuffle(allergens)
     print("c"+ str(z) + " " +" ".join(allergens[:allergenics]))
