@@ -11,12 +11,13 @@ compile gen_low_allergy_count.py
 
 # Generate answers to sample cases
 sample 1
-# sample 2
+sample 2
 
 
 tc  random1 gen_random g=10 i=10 n=100 seed=13152452345
 tc  random2 gen_random g=100 i=100 n=100 max=2  seed=1234532323
 tc  random3 gen_random g=100 i=100 n=1000 max=10  seed=5434687902
+tc  random_big gen_random g=100 i=100 n=10000 max=10 seed=678072632476
 # tc  random3 generate_random
 tc  no_allergies1 gen_no_allergies g=10 i=10 n=10000 seed=12341234
 # tc  pos2 generate_pos
