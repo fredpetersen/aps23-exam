@@ -23,11 +23,11 @@ n = int(cmdlinearg('n'))
 print(str(g) + " " + str(i) + " " + str(n))
 
 for _ in range(g): # gin
-    units = random.randint(1, 1000000)
+    units = random.randint(1, 1e5)
     print(str(units) + " ")
 
 for _ in range(i): # tonics
-    units = random.randint(1, 1000000)
+    units = random.randint(1, 1e5)
     print(str(units) + " ")
     
 for z in range(n): # people
