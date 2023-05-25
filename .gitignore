@@ -2,3 +2,5 @@
 !**/sample/*.in
 **/*.ans
 !**/sample/*.ans
+
+**/.DS_Store
