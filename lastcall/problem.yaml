@@ -1,9 +1,0 @@
-author: Andreas Guldborg, Andreas Severin Hauch Trøstrup & Frederik Petersen
-source: APS 2023
-license: cc by-sa
-name: Last call
-type: scoring
-validation: custom score
-grading scoring:
-  objective: max
-  show_test_data_groups: true
