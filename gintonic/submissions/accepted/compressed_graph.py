@@ -1,5 +1,5 @@
 #! usr/bin/env python3
-from collections import defaultdict 
+from collections import defaultdict
 from time import time # Benchmark
 
 def bfs(graph,src,dest): # returns path to dest
@@ -39,7 +39,7 @@ def dfs(graph,src,dest):
                         current_vertex = parent[current_vertex]
                     return (True,p)
     return (False, set(parent))
-    
+
 def flow(orggraph, src,dest):
     graph = orggraph.copy()
     current_flow = 0
@@ -48,12 +48,12 @@ def flow(orggraph, src,dest):
         if not ispath:
             return current_flow
         saturation = min( graph[u][v] for u,v in p )
-        
+
         current_flow += saturation
         for u,v in p:
             graph[u][v] -= saturation
             graph[v][u] += saturation
-            
+
 def has_shared_element(set1, set2):
     if len(set1) < len(set2):
         for elem in set1:
@@ -64,7 +64,7 @@ def has_shared_element(set1, set2):
             if elem in set1:
                 return True
     return False
-    
+
 
 g,t,n = map(int,input().split())
 gins = defaultdict(set)
@@ -90,7 +90,7 @@ for i in range(t):
   tonic = "t" + "".join(allergens)
   graph[tonic]["end"] += int(amount)
   tonics[tonic] = allergens
-  
+
 customers = defaultdict(set)
 # print("tonics", tonics)
 
@@ -108,7 +108,7 @@ for i in range(n):
   customerStart = customer+"s"
   customerEnd = customer+"e"
   cum_hashing_time += time()-hash_start_time
-  
+
   graph_start_time = time()
   graph[customerStart][customerEnd] += 1
   if graph[customerStart][customerEnd] > 1:
@@ -122,7 +122,7 @@ for i in range(n):
     if not has_shared_element(allergies, allergens):
       graph[customerEnd][tonic] = 1e6
   cum_graph_time += time()-graph_start_time
-      
+
 # print("Loading customers and constructing graph took", time()-inter_time)
 # print("Hashing took", cum_hashing_time)
 # print("Graphing took", cum_graph_time)

@@ -2,9 +2,9 @@
 
 \illustration{.33}{images/kattis_klub.png}{The "Klub of Allergenic Tonic Tasters In Scrollbar" as imagined by Midjourney.}
 
-\noindent It is once again time for the "Klub of Allergenic Tonic Tasters In Scrollbar" (KATTIS) to gather for their annual tonic tasting seance, where people with all kinds of exotic allergies will be attending. 
+\noindent It is once again time for the "Klub of Allergenic Tonic Tasters In Scrollbar" (KATTIS) to gather for their annual tonic tasting seance, where people with all kinds of exotic allergies will be attending.
 \\
-\noindent You are the bartender for the night, and have been tasked with serving non-lethal drinks for the entire party. 
+\noindent You are the bartender for the night, and have been tasked with serving non-lethal drinks for the entire party.
 The Tonic Tasters should not be served just any drink -- tonight it's just Gin and Tonics!
 \\\\
 \noindent The KATTIS guests know how difficult it can be to find a safe drink, and have provided you with a list of their allergies in advance.
@@ -15,12 +15,12 @@ You need to figure out how many attendees can receive a G\&T that is safe for th
 You also have $g$ types of gin and $i$ types of tonic available to serve.
 For each type of gin and tonic, you know the list of allergens it contains aswell as the available supply.
 \\
-% \noindent Formally, let $p_1, p_2, \dots, p_n$ be the list of members attending the KATTIS party, 
-% where member $k$ has a list of allergens $a_k = a_{k1}, a_{k2}, \dots, a_{kz}$. 
-% Let $G_1, G_2, \dots, G_g$ be the list of gins available, 
+% \noindent Formally, let $p_1, p_2, \dots, p_n$ be the list of members attending the KATTIS party,
+% where member $k$ has a list of allergens $a_k = a_{k1}, a_{k2}, \dots, a_{kz}$.
+% Let $G_1, G_2, \dots, G_g$ be the list of gins available,
 % where gin $j$ has a list of allergens $b_j = b_{j1}, b_{j2}, \dots, b_{jh}$.
-% Let $t_1, t_2, \dots, t_i$ be the list of tonics available, 
-% where tonic $r$ has a list of allergens $c_r = c_{r1}, c_{r2}, \dots, c_{rv}$. 
+% Let $t_1, t_2, \dots, t_i$ be the list of tonics available,
+% where tonic $r$ has a list of allergens $c_r = c_{r1}, c_{r2}, \dots, c_{rv}$.
 
 \noindent A gin and tonic pair $(j,r)$ is safe for a member $p$ if and only if none of the allergens of $j$ and $r$ are contained in the allergens of $p$.
 \\\\
@@ -31,7 +31,7 @@ For each type of gin and tonic, you know the list of allergens it contains aswel
 The input consists of the following:
 
 \begin{itemize}
-\item Three integers $g$ ($1 \leq g \leq 100$), $i$ ($1 \leq i \leq 100$) and $n$ ($1 \leq n \leq 10^5$), the number of gins, tonics and members attending the KATTIS party.
+\item Three integers $g$ ($1 \leq g \leq 100$), $i$ ($1 \leq i \leq 100$) and $n$ ($1 \leq n \leq 10^4$), the number of gins, tonics and members attending the KATTIS party.
 
 \item For each gin $G_i$ an integer $\ell_j$ ($1 \leq \ell_j \leq10^5$), the amount of gin in units, followed by a list ($0 \leq length \leq 10$), consisting of space seperated names representing the allergens present in gin $g_i$.
 
